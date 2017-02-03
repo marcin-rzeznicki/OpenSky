@@ -16,6 +16,7 @@ object Main extends Setup with Protocol {
       .log("aggregator", msg => s"${msg.serializedValueSize()} bytes pulled out from $source")
       .map(msg => msg.value.parseJson[FlightData])
       .collect { case JsSuccess(data, _) => data }
+      .async
       .via(FlightsByOriginCountry(windowTime))
 
   def main(args: Array[String]): Unit = {
