@@ -2,6 +2,7 @@ package opensky.aggregator
 
 import akka.kafka.scaladsl.Consumer.Control
 import akka.stream.scaladsl.Source
+import opensky.Protocol
 import opensky.domain._
 import play.api.libs.json.JsSuccess
 

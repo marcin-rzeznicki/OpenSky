@@ -5,6 +5,10 @@ package object domain {
   type Flights          = Vector[FlightState]
   type FlightsByCountry = Map[String, Set[Icao24]]
 
+  object Flights {
+    def apply(elems: FlightState*): Flights = elems.toVector
+  }
+
   implicit class FlightsByCountryOps(val self: FlightsByCountry) extends AnyVal {
     def updatedWith(flightData: FlightData): FlightsByCountry =
       (self /: flightData.states) { (result, newFlight) =>
