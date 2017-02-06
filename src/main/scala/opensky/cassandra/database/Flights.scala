@@ -48,6 +48,7 @@ object ConcreteFlightStates {
       ct.insert
         .value(_.time, new DateTime(time * 1000))
         .value(_.icao24, flightState.icao24)
+        .value(_.callsign, flightState.callsign)
         .value(_.originCountry, flightState.originCountry)
         .value(_.timePosition, flightState.timePosition)
         .value(_.timeVelocity, flightState.timeVelocity)
